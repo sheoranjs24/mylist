@@ -1,0 +1,19 @@
+# Automatically normalize line endings for all text-based files
+* text=auto
+
+# Enforce Unix newlines
+*.css   text eol=lf
+*.html  text eol=lf
+*.js    text eol=lf
+*.json  text eol=lf
+*.less  text eol=lf
+*.md    text eol=lf
+*.svg   text eol=lf
+*.yml   text eol=lf
+
+# Don't diff or textually merge source maps
+*.map   binary
+
+# Exclude the `.htaccess` file from GitHub's language statistics
+# https://github.com/github/linguist#using-gitattributes
+dist/.htaccess linguist-vendored
