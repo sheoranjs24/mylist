@@ -1,0 +1,32 @@
+{
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-jscs": "^3.0.1",
+    "gulp-jshint": "^2.0.0",
+    "jquery": "1.11.3",
+    "jshint": "^2.8.0",
+    "normalize.css": "3.0.3"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "h5bp-configs": {
+    "directories": {
+      "archive": "archive",
+      "dist": "dist",
+      "src": "src",
+      "test": "test"
+    }
+  },
+  "homepage": "https://mylist.jyotisheoran.me/",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/sheoranjs24/mylist/master/LICENSE.txt"
+  },
+  "name": "html5-boilerplate",
+  "private": true,
+  "scripts": {
+    "build": "gulp build"
+  },
+  "version": "0.0.1"
+}
