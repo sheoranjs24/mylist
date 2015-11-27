@@ -95,10 +95,10 @@
 ```
 22. Bump up version number & push to staging branch on GitHub (auto-deploy to Heroku)
 ```
-	$ git checkout -b staging
+	$ git checkout -b stage
 	\# make some changes to reflect new version
 	$ git commit -a "bump version number to XX"
-	$ git push origin staging
+	$ git push origin stage
 ```
 23. Check logs
 ```
@@ -107,7 +107,7 @@
 24. Push changes to master & tag it
 ```
 	$ git checkout master
-	$ git merge --no-ff staging
+	$ git merge --no-ff stage
 	$ git tag -a XX
 	$ git push origin master
 ```
