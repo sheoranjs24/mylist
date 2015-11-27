@@ -1,4 +1,4 @@
-# READ ME
+# myList READ ME
 
 ## Start a Project
 1. Make directory structure
@@ -11,7 +11,7 @@
 ```
 3. Touch initial files
 ```
-	$ touch app.py .gitignore README.md requirements.txt
+	$ touch app.py .gitignore README.md requirements.txt Procfile
 ```
 4. Make Python Virtual Environment
 ```
@@ -27,6 +27,7 @@
 6. Install Python Libraries
 ```
 	$ pip install Flask==0.10.1
+	$ pip install gunicorn
 ```
 7. Add installed libaries to requirements.txt
 ```
@@ -37,4 +38,41 @@
 ```
 	$ python app.py
 ```
+10. Install Heroku toolkit
+11. Add content to procfile
+```
+	$ echo "web: gunicorn app:app" >> Procfile
+```
+12. Heroku settings for python
+```
+	echo "python-3.4.2" >> runtime.txt
+```
+13. Commit your changes in git and PUSH to Github
+``` 
+	$ git add .
+	$ git commit -m "hello world app"
+	$ git remote add origin git@github.com:sheoranjs24/app.git 
+	$ git push -u origin master
+```
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
