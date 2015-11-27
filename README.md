@@ -8,6 +8,7 @@
 2. Initialize git
 ```
 	$ git init
+	$ git remote add origin git@github.com:sheoranjs24/YOUR_APP_NAME.git 
 	$ git -b checkout develop
 ```
 3. Touch initial files
@@ -45,7 +46,7 @@
 ```
 11. Add content to procfile
 ```
-	$ echo "web: gunicorn src/app:app" >> Procfile
+	$ echo "web: gunicorn --pythonpath src backend.app:app" >> Procfile
 ```
 12. Heroku settings for python
 ```
@@ -56,7 +57,6 @@
 	$ git checkout -b develop
 	$ git add .
 	$ git commit -m "hello world app"
-	$ git remote add origin git@github.com:sheoranjs24/YOUR_APP_NAME.git 
 	$ git push -u origin develop
 ```
 14. Touch Heroku specific files
