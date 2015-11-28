@@ -176,8 +176,11 @@
 	$ git checkout stage
 	$ git merge --no-ff develop
 	$ git push origin stage
-	
 ```
+10. Run the migrations that we created to migrate our staging database.
+```
+	$ heroku run python src/backend/manage.py db upgrade --app YOUR_APP_NAME-stage
+``` 
 	
 	
 	
