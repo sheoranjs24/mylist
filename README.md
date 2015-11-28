@@ -96,7 +96,7 @@
 22. Bump up version number & push to staging branch on GitHub (auto-deploy to Heroku)
 ```
 	$ git checkout -b stage
-	\# make some changes to reflect new version
+	\# todo: make some changes to reflect new version
 	$ git commit -a "bump version number to XX"
 	$ git push origin stage
 ```
@@ -170,7 +170,7 @@
 	$ git add .
 	$ git commit -m "add postgres configuration"
 	$ git push origin feature/config-database
-	\# Create pull-request and merge branch to develop
+	\# todo: Create pull-request and merge branch to develop
 	$ git checkout develop
 	$ git pull origin develop
 	$ git checkout stage
@@ -181,7 +181,16 @@
 ```
 	$ heroku run python src/backend/manage.py db upgrade --app YOUR_APP_NAME-stage
 ``` 
-	
+11. Setup Production database
+```
+	$ heroku addons:create heroku-postgresql:hobby-dev --app YOUR_APP_NAME-prod
+	$ git checkout master
+	$ git merge --no-ff stage
+	$ git tag -a XX
+	$ git push origin master
+	\# todo: Use heroku pipeline to push stage to prod
+	$ heroku run python src/backend/manage.py db upgrade --app YOUR_APP_NAME-prod
+```	
 	
 	
 	
