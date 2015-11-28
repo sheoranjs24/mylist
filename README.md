@@ -135,6 +135,12 @@
 	$ pip freeze > requirements.txt
 ```
 2. Create a database called YOUR_APP_NAME-dev to use as our local development database.
+```
+	$ createdb YOUR_APP_NAME-dev
+	$ psql YOUR_APP_NAME-dev
+	SQL> \q
+	$ 
+```
 3. Add database to configuration file: Add SQLALCHEMY_DATABASE_URI field to the Config() class
 4. Add database variable to postactivate file
 ```
@@ -167,6 +173,9 @@
 	\# Create pull-request and merge branch to develop
 	$ git checkout develop
 	$ git pull origin develop
+	$ git checkout stage
+	$ git merge --no-ff develop
+	$ git push origin stage
 	
 ```
 	
