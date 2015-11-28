@@ -102,7 +102,7 @@
 ```
 23. Check logs
 ```
-	$ heroku logs --tail
+	$ heroku logs --tail --app YOUR_APP_NAME-stage
 ```
 24. Push changes to master & tag it
 ```
