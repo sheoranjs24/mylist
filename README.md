@@ -111,12 +111,73 @@
 	$ git tag -a XX
 	$ git push origin master
 ```
+24. Create config.py file
+25. Local & Remote Settings
+```
+	$ echo "export APP_SETTINGS=\"config.DevelopmentConfig\"" > $VIRTUAL_ENV/bin/Postactivate
+	$ workon YOUR_APP_NAME
+	$ heroku config:set APP_SETTINGS=config.StagingConfig --remote stage
+	$ heroku config:set APP_SETTINGS=config.ProductionConfig --remote prod
+	
+	\# test
+	$ heroku run python src/backend/app.py --app YOUR_APP_NAME-stage
+	$ heroku run python src/backend/app.py --app YOUR_APP_NAME-prod
+```
 25. Send logs to Papertrail
 26. Add Automated tests using Travis/Jenkins
 		
+
+### Add support for database
+1. Install Dependencies
+```
+	$ brew install postgres
+	$ pip install psycopg2 Flask-SQLAlchemy Flask-Migrate
+	$ pip freeze > requirements.txt
+```
+2. Create a database called YOUR_APP_NAME-dev to use as our local development database.
+```
+	$ createdb YOUR_APP_NAME-dev
+	$ psql YOUR_APP_NAME-dev
+	SQL> \q
+	$ 
+```
+3. Add database to configuration file: Add SQLALCHEMY_DATABASE_URI field to the Config() class
+4. Add database variable to postactivate file
+```
+	$ echo "export DATABASE_URL=\"postgresql://localhost/YOUR_APP_NAME-dev\"" >> $VIRTUAL_ENV/bin/postactivate
+	$ workon YOUR_APP_NAME   #restart virtual env
+```
+5. In your app.py file import SQLAlchemy and connect to the database.
+6. Use Alembic and Flask-Migrate to migrate our local database to the latest version
+```
+	$ touch src/backend/manage.py
+	$ python src/backend/manage.py db init
+```
+7. Migrate db
+```
+	$ python src/backend/manage.py db migrate
+	$ python src/backend/manage.py db upgrade  
+```
+8. Remote Migration Configuration
+```
+	\# Check if the app already has a database
+	$ heroku config --app YOUR_APP_NAME-stage	
+	\# If no database, then add the Postgres addon
+	$ heroku addons:create heroku-postgresql:hobby-dev --app YOUR_APP_NAME-stage
+```
+9. Commit the changes and merge to staging
+```
+	$ git add .
+	$ git commit -m "add postgres configuration"
+	$ git push origin feature/config-database
+	\# Create pull-request and merge branch to develop
+	$ git checkout develop
+	$ git pull origin develop
+	$ git checkout stage
+	$ git merge --no-ff develop
+	$ git push origin stage
 	
-	
-	
+```
 	
 	
 	

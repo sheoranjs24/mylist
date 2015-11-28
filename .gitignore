@@ -25,17 +25,18 @@ __pycache__
 
 # Distribution / packaging
 .Python
-env
-bin
-build
-develop-eggs
-dist
-eggs
-lib
-lib64
-parts
-sdist
-var
+env/
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+migrations/
 *.egg
 *.egg-info
 .installed.cfg
@@ -45,7 +46,7 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # Unit test / coverage reports
-htmlcov
+htmlcov/
 .tox
 .coverage
 .cache
@@ -73,5 +74,5 @@ Thumbs.db
 .jekyll-metadata
 
 # Folders to ignore
-bower_components
-node_modules
+bower_components/
+node_modules/
