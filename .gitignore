@@ -25,7 +25,7 @@ __pycache__
 
 # Distribution / packaging
 .Python
-env/
+venv
 bin/
 build/
 develop-eggs/
@@ -76,3 +76,4 @@ Thumbs.db
 # Folders to ignore
 bower_components/
 node_modules/
+screenshots/examples/
