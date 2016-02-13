@@ -1,0 +1,17 @@
+{
+  "name": "my-list-app",
+  "description": "A starter project for MyListApp",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sheoranjs24/mylistapp",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "angular-loader": "~1.4.0",
+    "angular-mocks": "~1.4.0",
+    "fontawesome": "~4.5.0",
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.2.0"
+  }
+}

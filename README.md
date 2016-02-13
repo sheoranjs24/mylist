@@ -15,8 +15,11 @@ A personal productivity app. The app has below features:
 ### Technologies Used
 * Github for codebase, issue-mgmt and wiki
 * Database: PostgresSQL
-* Backend: Python3
-* Frontend: AngularJS, Bootstrap-ui, Gulp
+* Backend: Python3, Flask, gunicorn, pyling + pytest + tox
+* Frontend: AngularJS, Bootstrap-ui, PhantomJS, ?Mocha|Jasmine
+* Pages: Jinja
+* E2E Testing: Karma, Protector, CucumberJS, ?SauceLabs|BrowserStack
+* Other: Gulp
 * Cloud Server: Heroku
 * Development: Atom IDE
 
@@ -32,7 +35,7 @@ A personal productivity app. The app has below features:
 			* install heroku
 			* `heroku plugins:install heroku-pipelines`
 			* `heroku addons:create heroku-postgresql:hobby-dev`
-			* ?mongodb, heroku-redis:hobby-dev, hadoop, 
+			* ?mongodb, heroku-redis:hobby-dev, hadoop,
 			* ?librato, graphite
 			* ?papertrail
 			* ?sendgrid, mandrill
@@ -64,7 +67,7 @@ export DATABASE_URL="postgresql://localhost/mylist-dev"" > $VIRTUAL_ENV/bin/post
 2. **Build the app locally**
 3. **Run the app locally**
 	* Check available commonds: `python src/backend/manage.py --help`
-	* Backend app: 
+	* Backend app:
 		* `./run.py`
 		* `python src/backend/app.py`  # http://localhost:5000/
 		* `python src/backend/manage.py runserver`
@@ -74,25 +77,25 @@ export DATABASE_URL="postgresql://localhost/mylist-dev"" > $VIRTUAL_ENV/bin/post
 	* **todo** Fronend app:
 4. **Test the app locally**
 	* run unit-tests
-	* test local-deploy: 
+	* test local-deploy:
 		* `heroku local web`
-6. **Making code changes**: 
+6. **Making code changes**:
 	* create a git branch from the `develop` branch
 	* make your changes on the branch & commit them
 		* `git add .`
 		* `git commit -m "commit message"`
 	* squash all commits to one: `git rebase -i HEAD~2`
-	* rebase with `develop` branch: 
+	* rebase with `develop` branch:
 		* `git fetch origin`
 		* `git rebase origin develop`
-	* submit a pull-request to merge with `develop` branch on GitHub: 
+	* submit a pull-request to merge with `develop` branch on GitHub:
 		* `git push origin feature/feature-name`
 		* create a pull-request
 7. **Making config changes**:
 	* Local env
 		* `echo "export <CONFIG_NAME>=\"<CONFIG_VALUE>\"" > $VIRTUAL_ENV/bin/postactivate`
 		* `echo "<CONFIG_NAME>=<CONFIG_VALUE>\n" > .env`
-	* Heroku 
+	* Heroku
 		* `heroku config:set <CONFIG_NAME>=<CONFIG_VALUE> --remote stage`
 7. **Deploying new code changes to stage**
 	* Merge `develop` branch to `stage` branch
@@ -109,9 +112,9 @@ export DATABASE_URL="postgresql://localhost/mylist-dev"" > $VIRTUAL_ENV/bin/post
 	* Backend:
 		* Start a python shell: `heroku run python manage.py shell --app mylist-stage`
 		* Start app: `heroku run python src/backend/app.py --app mylist-stage`
-		* Run bash: `heroku run bash`
+		* Run bash: `heroku run bash --app mylist-stage`
 		* Run config: `heroku run python config.py --app mylist-stage`
-	* DB: 
+	* DB:
 		* Monitor db logs: `heroku logs -p postgres -t --app mylist-stage`
 		* Monitor db: `heroku pg:psql --app mylist-stage`
 		* Diagnoise db: `heroku pg:diagnose --app mylist-stage`

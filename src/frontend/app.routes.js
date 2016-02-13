@@ -1,7 +1,7 @@
 myApp.config(['$routeProvider',
      function($routeProvider) {
          $routeProvider.
-             when('/', {
+             when('/home', {
                  templateUrl: 'components/home/home.tpl.html',
              }).
              when('/about-us', {

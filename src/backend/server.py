@@ -5,9 +5,19 @@ from flask.ext.sqlalchemy import SQLAlchemy
 
 from backend import config
 
-app = Flask(__name__)
+tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../')
+
+app = Flask(__name__, template_folder=tmpl_dir)
 app.config.from_object(os.environ['APP_SETTINGS'])
+#app.jinja_loader = jinja2.FileSystemLoader('tmpl_dir')
+
 db = SQLAlchemy(app)
+
+# debugging STARTS
+print("current dir: ", os.getcwd())
+for x in os.walk(os.getcwd()):
+    print("\n ", x)
+# debugging ENDS
 
 from backend.user import views, models
 

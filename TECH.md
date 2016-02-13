@@ -183,6 +183,15 @@
 		* http://docs.sqlalchemy.org/en/rel_1_0/genindex.html
 		* https://docs.python.org/3/library/index.html
 		* https://docs.python.org/3/reference/index.html
+		* http://oauth.net/2/
+		* https://openid.net/connect/
+		* https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2
+		* http://blog.miguelgrinberg.com/post/oauth-authentication-with-flask
+		* http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database
+		* https://realpython.com/blog/python/flask-by-example-integrating-flask-and-angularjs/
+		* https://github.com/angular/angular-seed
+		* https://github.com/shea256/angular-flask/blob/master/angular_flask/templates/404.html
+		* https://stackoverflow.com/questions/32147748/flask-and-angularjs
 
 
 ### Add support for redis
